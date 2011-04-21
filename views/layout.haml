@@ -1,0 +1,17 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf8"}
+    %title Beer && Code Omaha
+    /[if lt IE 9]
+      %script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+    %link{:href => "/css/main.css", :type => "text/css", :rel => "stylesheet"}
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
+    %script{:src => "/js/carbonate.js"}
+    %script{:src => "/js/bandc.js"}
+  %body
+    %header
+      %a{:href => "/"}
+        %img#logo{:src => "/img/beer_and_code_logo.png"}
+    #content
+      = yield

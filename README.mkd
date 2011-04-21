@@ -1,0 +1,8 @@
+# Beer && Code
+
+This will eventually be the new website for [Beer&&Code][bandc]. Let's talk about functionality on the issues page.
+
+Props to [TheDahv][props] for the design.
+
+  [bandc]: http://beerandcode.org
+  [props]: https://github.com/TheDahv
