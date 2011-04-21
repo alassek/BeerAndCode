@@ -6,3 +6,13 @@ Props to [TheDahv][props] for the design.
 
   [bandc]: http://beerandcode.org
   [props]: https://github.com/TheDahv
+
+## Getting Started
+
+Download the Gem bundle:  
+
+    $ bundle install
+
+Start the development server:  
+
+    $ shotgun
