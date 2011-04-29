@@ -5,7 +5,7 @@ var geo = {};
 
   this.getLocations = function (coords) {
     var dfd = $.Deferred();
-    amplify.request("/locations.json", coords, function (response) {
+    amplify.request("locations", coords, function (response) {
       if (response)
       if (response.data)
       if (response.data.locations) {

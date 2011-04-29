@@ -1,4 +1,4 @@
-amplify.request.define("/locations.json", function (options) {
+amplify.request.define("locations", function (options) {
   // mocking this for now
   options.success({
     status: 'success',
