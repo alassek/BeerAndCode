@@ -10,6 +10,8 @@ var geo = {};
       if (response.data)
       if (response.data.locations) {
         dfd.resolve(response.data.locations);
+      } else {
+        dfd.resolve([]);
       }
     });
     return dfd.promise();
@@ -19,9 +21,16 @@ var geo = {};
     var dfd = $.Deferred();
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        dfd.resolve(position);
-      });
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          dfd.resolve(position);
+        },
+        function (error) {
+          dfd.resolve();
+        }, {
+          timeout: 5000
+        }
+      );
     } else {
       dfd.resolve();
     }
