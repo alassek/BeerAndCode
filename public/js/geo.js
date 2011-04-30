@@ -20,10 +20,12 @@ var geo = {};
   this.getCoords = function () {
     var dfd = $.Deferred();
 
-    if (navigator.geolocation) {
+    if (amplify.store("coords")) {
+      dfd.resolve( amplify.store("coords") );
+    } else if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function (position) {
-          dfd.resolve(position);
+          dfd.resolve( amplify.store("coords", position) );
         },
         function (error) {
           dfd.resolve();
