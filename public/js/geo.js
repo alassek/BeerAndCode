@@ -5,15 +5,21 @@ var geo = {};
 
   this.getLocations = function (coords) {
     var dfd = $.Deferred();
-    amplify.request("locations", coords, function (response) {
-      if (response)
-      if (response.data)
-      if (response.data.locations) {
-        dfd.resolve(response.data.locations);
-      } else {
-        dfd.resolve([]);
-      }
-    });
+
+    if ( amplify.store("locations") ) {
+      dfd.resolve( amplify.store("locations") );
+    } else {
+      amplify.request("locations", coords, function (response) {
+        if (response)
+        if (response.data)
+        if (response.data.locations) {
+          dfd.resolve( amplify.store("locations", response.data.locations) );
+        } else {
+          dfd.resolve([]);
+        }
+      });
+    }
+
     return dfd.promise();
   }
 
