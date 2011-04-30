@@ -1,11 +1,14 @@
+require (["jquery", "amplify.min"], function () {
+
 amplify.request.define("locations", function (options) {
-  // mocking this for now
-  options.success({
-    status: 'success',
-    data: {
-      locations: [
-        { city: 'Omaha', state: 'NE', lat: 41.259743, lng: -95.997849 }
-      ]
-    }
-  });
+
+  return $.read(
+    '/locations.json',
+    options.data,
+    options.success,
+    options.error
+  );
+
+});
+
 });
