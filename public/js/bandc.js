@@ -25,8 +25,7 @@ function loadLocations (locations) {
     html.push(
       $('<li></li>')
         .text([location.city, location.state].join(', '))
-        .data('lat', location.lat)
-        .data('lng', location.lng)
+        .data('location', location)
         .get(0)
     );
   });
