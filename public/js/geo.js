@@ -14,9 +14,8 @@ var geo = {};
         if (response.data)
         if (response.data.locations) {
           dfd.resolve( amplify.store("locations", response.data.locations) );
-        } else {
-          dfd.resolve([]);
         }
+        if (!dfd.isResolved()) dfd.resolve();
       });
     }
 

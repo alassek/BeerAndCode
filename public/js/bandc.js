@@ -2,8 +2,7 @@ require(["jquery", "geo", "ui/carbonate"], function ($, geo) {
 
 $(function() {
   $(window).konami(function () {
-    var carbonate = new Carbonate();
-    carbonate.start(); 
+    (new Carbonate).start();
   });
 });
 
@@ -21,6 +20,7 @@ $.when(geo.getCoords())
 
 function loadLocations (locations) {
   var html = [];
+  locations = locations || [];
   $.each(locations, function (i, location) {
     html.push(
       $('<li></li>')
