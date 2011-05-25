@@ -4,10 +4,10 @@ var geo = {};
 (function () {
 
   this.getLocations = function (coords) {
-    var dfd = $.Deferred();
+    var locations, dfd = $.Deferred();
 
-    if ( amplify.store("locations") ) {
-      dfd.resolve( amplify.store("locations") );
+    if ( locations = amplify.store("locations") ) {
+      dfd.resolve( locations );
     } else {
       amplify.request("locations", coords, function (response) {
         if (response)
