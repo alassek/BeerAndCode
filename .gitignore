@@ -1,3 +1,6 @@
 .DS_Store
 .bundle
 .rvmrc
+*.db
+*.swp
+config/database.yml

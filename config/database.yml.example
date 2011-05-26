@@ -1,0 +1,6 @@
+development:
+  adapter: mysql2
+  host: localhost
+  database: beer_and_code_development
+  user: USER_NAME_HERE
+  password: PASSWORD_HERE
