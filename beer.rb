@@ -11,8 +11,12 @@ Dir["models/*.rb"].each {|file| require file }
 
 module BeerAndCode
   class HomePage < Sinatra::Base
-    
+
     set :haml, :format => :html5
+
+    before /\.json$/ do
+      content_type 'application/json'
+    end
 
     get '/' do
       haml :index
@@ -30,7 +34,9 @@ module BeerAndCode
     private
 
       def get_locations_for(request)
-        Location.all
+        lat, lng = request.params[:lat], request.params[:lng]
+        locations = Location.near(lat, lng).limit(10).all
+        locations.map(&:to_hash)
       end
 
   end

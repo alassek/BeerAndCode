@@ -7,5 +7,4 @@ gem 'mysql2'
 
 group :development do
   gem 'shotgun'
-  gem 'sqlite3'
 end
